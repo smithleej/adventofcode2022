@@ -39,11 +39,10 @@ fn main() -> color_eyre::Result<()> {
 
             let from_stack = &mut stacks[instruction_thing.from-1];
             
-            let mut taken_items: Vec<char> = from_stack.split_off(from_stack.len()-instruction_thing.count);
+            let taken_items: Vec<char> = from_stack.split_off(from_stack.len()-instruction_thing.count);
 
             let to_stack = &mut stacks[instruction_thing.to-1];
             
-            taken_items.reverse();
             to_stack.append(&mut dbg!(taken_items));
             
             println!("{:#?}", stacks);
